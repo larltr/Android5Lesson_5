@@ -177,7 +177,7 @@ fun TextCat(modifier: Modifier) {
         Icon(
             modifier = Modifier
                 .padding(top = 4.dp, start = 4.dp),
-            painter = painterResource(id = R.drawable.ic_catt), contentDescription = stringResource(
+            painter = painterResource(id = R.drawable.ic_cat), contentDescription = stringResource(
                 R.string.content_description_icon_cat
             ),
             tint = Color.Gray
