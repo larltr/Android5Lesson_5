@@ -1,6 +1,5 @@
 package com.angelika.android5lesson_5.presentation.screens.detailscreen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,11 +14,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
+import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
 import com.angelika.android5lesson_5.R
 
 @Composable
@@ -35,8 +35,8 @@ fun CatDetailScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.image_not_found),
+        AsyncImage(
+            rememberAsyncImagePainter(model = R.drawable.image_not_found),
             contentDescription = null,
             modifier = Modifier
                 .size(200.dp)
@@ -45,11 +45,9 @@ fun CatDetailScreen(
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-        name?.let {
-            Text(
-                text = it,
-                style = TextStyle(fontSize = 18.sp)
-            )
-        }
+        Text(
+            text = "ABOBA23462 ONE LOVE",
+            style = TextStyle(fontSize = 18.sp)
+        )
     }
 }
