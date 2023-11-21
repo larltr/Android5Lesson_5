@@ -19,12 +19,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavBackStackEntry
 import com.angelika.android5lesson_5.R
 
 @Composable
-fun CatDetailScreen() {
+fun CatDetailScreen(
+    modifier: Modifier = Modifier,
+    backStackEntry: NavBackStackEntry
+) {
+    val name = backStackEntry.arguments?.getString("name")
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
@@ -40,9 +45,11 @@ fun CatDetailScreen() {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            text = "ABOBA23462 ONE LOVE",
-            style = TextStyle(fontSize = 18.sp)
-        )
+        name?.let {
+            Text(
+                text = it,
+                style = TextStyle(fontSize = 18.sp)
+            )
+        }
     }
 }

@@ -33,16 +33,18 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.angelika.android5lesson_5.R
-import com.angelika.android5lesson_5.ui.theme.Android5Lesson_5Theme
 import com.angelika.android5lesson_5.ui.theme.Rubik
 import com.angelika.android5lesson_5.ui.theme.myPurple
 
 @Composable
-fun Screen(modifier: Modifier = Modifier) {
+fun Screen(
+    modifier: Modifier = Modifier,
+    navHostController: NavHostController,
+) {
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -53,7 +55,11 @@ fun Screen(modifier: Modifier = Modifier) {
             UserInfo(modifier = Modifier)
             Search(modifier = Modifier)
             TextCat(modifier = Modifier.padding(top = 16.dp))
-            LazyVerticalGrid(modifier = Modifier, CatViewModel())
+            LazyVerticalGrid(
+                modifier = Modifier,
+                catViewModel = CatViewModel(),
+                navHostController = navHostController
+            )
         }
     }
 }
@@ -183,13 +189,5 @@ fun TextCat(modifier: Modifier) {
             ),
             tint = Color.Gray
         )
-    }
-}
-
-@Preview
-@Composable
-fun UserInfoPreview() {
-    Android5Lesson_5Theme {
-        Screen()
     }
 }
