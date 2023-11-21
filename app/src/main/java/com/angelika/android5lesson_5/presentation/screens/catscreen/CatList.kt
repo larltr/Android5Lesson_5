@@ -62,7 +62,7 @@ fun LazyVerticalGrid(
                             "${Screens.Detail.route}/${
                                 cat.image.replace(
                                     "/",
-                                    "."
+                                    "-"
                                 )
                             }"
                         )

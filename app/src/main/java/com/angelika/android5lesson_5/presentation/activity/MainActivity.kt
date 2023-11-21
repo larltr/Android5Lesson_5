@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                                 type = NavType.StringType
                             })
                         ) { backStackEntry ->
-                            CatDetailScreen(backStackEntry = backStackEntry)
+                            CatDetailScreen( backStackEntry = backStackEntry)
                         }
                     }
                 }
