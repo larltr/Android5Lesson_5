@@ -41,7 +41,7 @@ fun CatDetailScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "Ваш текст здесь",
+            text = "ABOBA23462 ONE LOVE",
             style = TextStyle(fontSize = 18.sp)
         )
     }
