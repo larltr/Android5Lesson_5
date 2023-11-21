@@ -1,4 +1,4 @@
-package com.angelika.android5lesson_5.presentation.screens
+package com.angelika.android5lesson_5.presentation.screens.catscreen
 
 import androidx.lifecycle.ViewModel
 import com.angelika.android5lesson_5.data.model.CatModel

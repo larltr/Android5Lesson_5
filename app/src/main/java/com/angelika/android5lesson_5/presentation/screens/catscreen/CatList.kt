@@ -1,4 +1,4 @@
-package com.angelika.android5lesson_5.presentation.screens
+package com.angelika.android5lesson_5.presentation.screens.catscreen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -43,13 +43,10 @@ fun LazyVerticalGrid(modifier: Modifier, catViewModel: CatViewModel) {
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight(),
-        columns = GridCells.Fixed(2),
+        columns = GridCells.Adaptive(140.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        item {
-            TextCat(modifier = Modifier.padding(top = 16.dp))
-        }
         items(listState.value) { cat ->
             cat.let {
                 CatItem(cat = cat)
@@ -65,7 +62,8 @@ fun CatItem(modifier: Modifier = Modifier, cat: CatModel) {
             .clip(shape = RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp))
     ) {
         AsyncImage(
-            modifier = Modifier.size(height = 180.dp, width = 160.dp),
+            modifier = Modifier.clip(shape = RoundedCornerShape(15.dp))
+                .size(height = 180.dp, width = 170.dp),
             model = ImageRequest.Builder(LocalContext.current).data(cat.image).crossfade(true)
                 .build(),
             contentDescription = stringResource(R.string.content_description_image_cat),

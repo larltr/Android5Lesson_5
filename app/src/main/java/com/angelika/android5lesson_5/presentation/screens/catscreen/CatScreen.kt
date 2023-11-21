@@ -1,4 +1,4 @@
-package com.angelika.android5lesson_5.presentation.screens
+package com.angelika.android5lesson_5.presentation.screens.catscreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -52,6 +52,7 @@ fun Screen(modifier: Modifier = Modifier) {
         Column(modifier = Modifier.padding(top = 20.dp)) {
             UserInfo(modifier = Modifier)
             Search(modifier = Modifier)
+            TextCat(modifier = Modifier.padding(top = 16.dp))
             LazyVerticalGrid(modifier = Modifier, CatViewModel())
         }
     }
