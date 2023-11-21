@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Android5Lesson_5</string>
+    <string name="content_description_user_avatar">Аватарка пользователя</string>
+    <string name="text_user_name">Li Angelika</string>
+    <string name="content_description_notifications">Иконка уведомлений</string>
+    <string name="content_description_icon_search">Иконка поиска</string>
+    <string name="content_description_image_cat">Картинка Кошки</string>
+    <string name="content_description_icon_cat">Иконка кота</string>
 </resources>
