@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.angelika.android5lesson_5.presentation.screens.Screen
+import com.angelika.android5lesson_5.presentation.screens.catscreen.Screen
 import com.angelika.android5lesson_5.ui.theme.Android5Lesson_5Theme
 
 class MainActivity : ComponentActivity() {
