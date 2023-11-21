@@ -52,7 +52,7 @@ fun Screen(modifier: Modifier = Modifier) {
         Column(modifier = Modifier.padding(top = 20.dp)) {
             UserInfo(modifier = Modifier)
             Search(modifier = Modifier)
-            LazyVerticalGrid(modifier = Modifier)
+            LazyVerticalGrid(modifier = Modifier, CatViewModel())
         }
     }
 }
