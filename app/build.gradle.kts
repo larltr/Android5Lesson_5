@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.angelika.android5lesson_5"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.angelika.android5lesson_5"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -66,4 +66,11 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Navigation
+    val nav_version = "2.7.5"
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.5.0")
 }
