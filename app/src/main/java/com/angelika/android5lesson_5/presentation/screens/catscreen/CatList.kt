@@ -1,5 +1,6 @@
 package com.angelika.android5lesson_5.presentation.screens.catscreen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,15 +24,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.angelika.android5lesson_5.R
 import com.angelika.android5lesson_5.data.model.CatModel
+import com.angelika.android5lesson_5.presentation.Screens
 import com.angelika.android5lesson_5.ui.theme.Rubik
 import com.angelika.android5lesson_5.ui.theme.myPurple
 
 @Composable
-fun LazyVerticalGrid(modifier: Modifier, catViewModel: CatViewModel) {
+fun LazyVerticalGrid(
+    modifier: Modifier,
+    catViewModel: CatViewModel,
+    navHostController: NavHostController,
+) {
 
 //    val cats = remember {
 //        mutableStateListOf<CatModel?>(null)
@@ -48,9 +55,20 @@ fun LazyVerticalGrid(modifier: Modifier, catViewModel: CatViewModel) {
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(listState.value) { cat ->
-            cat.let {
-                CatItem(cat = cat)
-            }
+            CatItem(
+                modifier = Modifier
+                    .clickable {
+                        navHostController.navigate(
+                            "${Screens.Detail.route}/${
+                                cat.image.replace(
+                                    "/",
+                                    "-"
+                                )
+                            }"
+                        )
+                    },
+                cat = cat,
+            )
         }
     }
 }
@@ -62,7 +80,8 @@ fun CatItem(modifier: Modifier = Modifier, cat: CatModel) {
             .clip(shape = RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp))
     ) {
         AsyncImage(
-            modifier = Modifier.clip(shape = RoundedCornerShape(15.dp))
+            modifier = Modifier
+                .clip(shape = RoundedCornerShape(15.dp))
                 .size(height = 180.dp, width = 170.dp),
             model = ImageRequest.Builder(LocalContext.current).data(cat.image).crossfade(true)
                 .build(),
